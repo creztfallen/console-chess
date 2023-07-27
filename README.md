@@ -1,6 +1,6 @@
 # Console Chess
 
-This is a chess game to be played with your friend. <br>
+This is a chess game to be played with your friends. <br>
 
 This game is written in C# using Visual Studio.
 

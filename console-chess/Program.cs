@@ -1,5 +1,6 @@
-﻿using Table;
+﻿using console_chess;
+using Table;
 
-GameTable tab = new GameTable(2, 4);
+GameTable tab = new GameTable(8, 8);
 
-Console.WriteLine();
+Screen.PrintTable(tab);

@@ -18,5 +18,10 @@ namespace Table
             Columns = columns;
             Pieces = new Piece[lines, columns];
         }
+
+        public Piece Piece(int line, int column)
+        {
+            return Pieces[line, column];
+        }
     }
 }

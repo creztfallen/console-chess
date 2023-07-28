@@ -11,16 +11,16 @@ namespace console_chess
     {
         public static void PrintTable(GameTable tab)
         {
-            for (int i = 0; i < tab.Lines; i++) {
+            for (int i = 0; i < tab.Rows; i++) {
                 for (int j = 0; j < tab.Columns; j++)
                 {
-                    if (tab.Piece(i, j) == null)
+                    if (tab.PiecePosition(i, j) == null)
                     {
                         Console.Write("- ");
                     }
                     else
                     {
-                        Console.Write($"{tab.Piece(i, j)} ");
+                        Console.Write($"{tab.PiecePosition(i, j)} ");
                     }
                 }
                 Console.WriteLine();

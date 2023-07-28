@@ -1,5 +1,5 @@
 ﻿using Table;
 
-Position position = new Position(2, 4);
+GameTable tab = new GameTable(2, 4);
 
-Console.WriteLine(position);
+Console.WriteLine();

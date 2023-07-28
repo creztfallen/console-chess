@@ -8,20 +8,26 @@ namespace Table
 {
     class GameTable
     {
-        public int Lines { get; set; }
+        public int Rows { get; set; }
         public int Columns { get; set; }
         private Piece[,] Pieces;
 
-        public GameTable(int lines, int columns)
+        public GameTable(int rows, int columns)
         {
-            Lines = lines;
+            Rows = rows;
             Columns = columns;
-            Pieces = new Piece[lines, columns];
+            Pieces = new Piece[rows, columns];
         }
 
-        public Piece Piece(int line, int column)
+        public Piece PiecePosition(int line, int column)
         {
             return Pieces[line, column];
+        }
+
+        public void PlaceThePiece(Position pos, Piece piece)
+        {
+            Pieces[pos.Row, pos.Column] = piece;
+            piece.Position = pos;
         }
     }
 }

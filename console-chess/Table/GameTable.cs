@@ -43,7 +43,7 @@ namespace Table
 
         public bool ValidPosition(Position pos)
         {
-            if (pos.Row < 0 || pos.Column < 0 || pos.Row >= Rows || pos.Column > Columns) {
+            if (pos.Row < 0 || pos.Column < 0 || pos.Row >= Rows || pos.Column >= Columns) {
                 return false;
             }
             return true;

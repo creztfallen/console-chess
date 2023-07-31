@@ -17,6 +17,5 @@ namespace Table
             Position = null;
             MovesQuantity = 0;
         }
-
     }
 }

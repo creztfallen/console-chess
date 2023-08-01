@@ -21,7 +21,7 @@ namespace console_chess
                     }
                     else
                     {
-                        PrintPiece(tab.PiecePosition(i, j));
+                        AddPiece(tab.PiecePosition(i, j));
                         Console.Write(" ");
                     }
                   
@@ -31,7 +31,7 @@ namespace console_chess
             Console.WriteLine("  A B C D E F G H");
         } 
 
-        public static void PrintPiece(Piece piece)
+        public static void AddPiece(Piece piece)
         {
             if (piece.Color == Color.White)
             {

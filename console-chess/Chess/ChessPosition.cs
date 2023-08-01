@@ -13,7 +13,7 @@ public class ChessPosition
         Row = row;
     }
 
-    public Position toPosition()
+    public Position ToPosition()
     {
         return new Position(8 - Row, Column - 'a');
     }

@@ -3,7 +3,7 @@ using Table;
 
 namespace Table
 {
-    internal class Piece
+    class Piece
     {
         public GameTable Tab { get; protected set; }
         public Color Color { get; protected set; }
@@ -16,6 +16,11 @@ namespace Table
             Color = color;
             Position = null;
             MovesQuantity = 0;
+        }
+
+        public void IncrementMovesQuantity()
+        {
+            MovesQuantity++;
         }
     }
 }

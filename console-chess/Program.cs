@@ -9,9 +9,13 @@ namespace console_chess
     {
         static void Main(string[] args)
         {
-            ChessPosition pos = new ChessPosition('d', 6);
+            GameTable tab = new GameTable(8, 8);
 
-            Console.WriteLine(pos.toPosition());
+            tab.PlaceThePiece(new Position(0, 2), new Rook(tab, Color.Black));
+            tab.PlaceThePiece(new Position(3, 5), new Knight(tab, Color.Black));
+            tab.PlaceThePiece(new Position(4, 4), new Queen(tab, Color.White));
+
+            Screen.PrintTable(tab);
         }
     }
 }

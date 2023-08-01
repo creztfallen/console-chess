@@ -12,6 +12,7 @@ namespace console_chess
         public static void PrintTable(GameTable tab)
         {
             for (int i = 0; i < tab.Rows; i++) {
+                Console.Write(8 - i + " ");
                 for (int j = 0; j < tab.Columns; j++)
                 {
                     if (tab.PiecePosition(i, j) == null)
@@ -20,11 +21,29 @@ namespace console_chess
                     }
                     else
                     {
-                        Console.Write($"{tab.PiecePosition(i, j)} ");
+                        PrintPiece(tab.PiecePosition(i, j));
+                        Console.Write(" ");
                     }
+                  
                 }
                 Console.WriteLine();
             }
+            Console.WriteLine("  A B C D E F G H");
         } 
+
+        public static void PrintPiece(Piece piece)
+        {
+            if (piece.Color == Color.White)
+            {
+                Console.Write(piece);
+            }
+            else
+            {
+                ConsoleColor aux = Console.ForegroundColor;
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.Write(piece);
+                Console.ForegroundColor = aux;
+            }
+        }
     }
 }

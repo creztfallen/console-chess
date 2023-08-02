@@ -9,8 +9,28 @@ namespace console_chess
     {
         static void Main(string[] args)
         {
+            try
+            {
             ChessMatch match = new ChessMatch();
-            Screen.PrintTable(match.Tab);
+
+                while (!match.Finished)
+                {
+                    Console.Clear();
+                    Screen.PrintTable(match.Tab);
+
+                    Console.Write("\nOrigin: ");
+                    Position origin = Screen.ReadChessPosition().ToPosition();
+                    Console.Write("Destination: ");
+                    Position destination = Screen.ReadChessPosition().ToPosition();
+
+                    match.MovePiece(origin, destination);
+                }
+
+            } 
+            catch (Exception ex)
+            {
+
+            }
         }
     }
 }

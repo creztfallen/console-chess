@@ -12,6 +12,7 @@ namespace Chess
         public GameTable Tab { get; private set; }
         private int Turn;
         private Color CurrentPlayer;
+        public bool Finished { get; private set; }
 
         public ChessMatch() 
         {
@@ -19,6 +20,7 @@ namespace Chess
             Turn = 1;
             CurrentPlayer = Color.White;
             ArrangePieces();
+            Finished = false;
         }
 
         public void MovePiece(Position origin, Position destination) 

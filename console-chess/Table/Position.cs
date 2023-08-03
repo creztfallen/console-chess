@@ -1,5 +1,7 @@
 ﻿
 
+using System.Data.Common;
+
 namespace Table
 {
      public class Position
@@ -8,6 +10,12 @@ namespace Table
         public int Column { get; set; }
 
         public Position(int row, int column)
+        {
+            Row = row;
+            Column = column;
+        }
+
+        public void DefineValues(int row, int column)
         {
             Row = row;
             Column = column;

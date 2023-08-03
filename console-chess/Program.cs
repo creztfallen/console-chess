@@ -5,32 +5,55 @@ using Table;
 
 namespace console_chess
 {
-    class Program
+  class Program
+  {
+    static void Main(string[] args)
     {
-        static void Main(string[] args)
+
+      try
+      {
+        ChessMatch match = new ChessMatch();
+
+        while (!match.Finished)
         {
-            try
-            {
-            ChessMatch match = new ChessMatch();
 
-                while (!match.Finished)
-                {
-                    Console.Clear();
-                    Screen.PrintTable(match.Tab);
+          try
+          {
+            Console.Clear();
+            Screen.PrintMatch(match);
 
-                    Console.Write("\nOrigin: ");
-                    Position origin = Screen.ReadChessPosition().ToPosition();
-                    Console.Write("Destination: ");
-                    Position destination = Screen.ReadChessPosition().ToPosition();
+            Console.WriteLine();
+            Console.Write("Origem: ");
+            Position origem = Screen.ReadChessPosition().ToPosition();
+            match.ValidateOriginPosition(origem);
 
-                    match.MovePiece(origin, destination);
-                }
+            bool[,] posicoesPossiveis = match.Tab.PiecePosition(origem).PossibleMoves();
 
-            } 
-            catch (Exception ex)
-            {
+            Console.Clear();
+            Screen.PrintTable(match.Tab, posicoesPossiveis);
 
-            }
+            Console.WriteLine();
+            Console.Write("Destino: ");
+            Position destino = Screen.ReadChessPosition().ToPosition();
+            match.ValidateDestinationPosition(origem, destino);
+
+            match.MakeThePlay(origem, destino);
+          }
+          catch (TableException e)
+          {
+            Console.WriteLine(e.Message);
+            Console.ReadLine();
+          }
         }
+        Console.Clear();
+        Screen.PrintMatch(match);
+      }
+      catch (TableException e)
+      {
+        Console.WriteLine(e.Message);
+      }
+
+      Console.ReadLine();
     }
+  }
 }

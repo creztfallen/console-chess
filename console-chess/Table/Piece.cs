@@ -3,7 +3,7 @@ using Table;
 
 namespace Table
 {
-    class Piece
+    abstract class Piece
     {
         public GameTable Tab { get; protected set; }
         public Color Color { get; protected set; }
@@ -22,5 +22,7 @@ namespace Table
         {
             MovesQuantity++;
         }
+
+        public abstract bool[,] PossibleMoves();
     }
 }

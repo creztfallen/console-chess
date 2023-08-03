@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Chess;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -30,6 +31,14 @@ namespace console_chess
             }
             Console.WriteLine("  A B C D E F G H");
         } 
+
+        public static ChessPosition ReadChessPosition()
+        {
+            string s = Console.ReadLine();
+            char column = s[0];
+            int row = int.Parse(s[1] + "" );
+            return new ChessPosition(column, row );
+        }
 
         public static void AddPiece(Piece piece)
         {
